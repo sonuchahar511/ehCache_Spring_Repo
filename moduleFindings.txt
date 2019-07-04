@@ -10,3 +10,5 @@ QuickerCache:
     @CacheEvict(value = "products", allEntries = true)
     
     https://dzone.com/articles/spring-cache-annotation-tips-and-tricks
+    
+    https://www.foreach.be/blog/spring-cache-annotations-some-tips-tricks
