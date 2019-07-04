@@ -1,0 +1,6 @@
+gradle : https://www.tutorialspoint.com/gradle/gradle_tasks.htm
+
+QuickerCache:
+    eh cache is used..
+
+    https://www.mkyong.com/spring/spring-caching-and-ehcache-example/
