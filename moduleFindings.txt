@@ -4,3 +4,9 @@ QuickerCache:
     eh cache is used..
 
     https://www.mkyong.com/spring/spring-caching-and-ehcache-example/
+    
+    @EnableCaching
+    @Cacheable("products")
+    @CacheEvict(value = "products", allEntries = true)
+    
+    https://dzone.com/articles/spring-cache-annotation-tips-and-tricks
