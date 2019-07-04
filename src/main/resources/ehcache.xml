@@ -3,7 +3,7 @@
 	monitoring="autodetect" dynamicConfig="true">
 
 	<!-- <diskStore path="java.io.tmpdir" /> -->
-	<diskStore path="c:\\cache" />
+	<diskStore path="tempDir" />
 
 	<cache name="movieFindCache" 
 		maxEntriesLocalHeap="10000"

@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
 
-	<logger name="com.mkyong.test" level="debug"
+	<logger name="com.chahar.test" level="debug"
 		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>

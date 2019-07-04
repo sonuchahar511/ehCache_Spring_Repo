@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 
 @Configuration
 @EnableCaching
-@ComponentScan({ "com.mkyong.*" })
+@ComponentScan({ "com.chahar.*" })
 public class AppConfig {
 
 	@Bean

@@ -17,9 +17,9 @@ public class App {
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 	    MovieDao obj = (MovieDao) context.getBean("movieDao");
 	    
-	    log.debug("Result : {}", obj.findByDirector("dummy"));
-	    log.debug("Result : {}", obj.findByDirector("dummy"));
-	    log.debug("Result : {}", obj.findByDirector("dummy"));
+	    for(int i=0;i<100;i++) {
+	    	log.debug("Result : {}", obj.findByDirector("dummy"));
+	    }
 	    
 	    //shut down the Spring context so that Ehcache got chance to shut down as well
 	    ((ConfigurableApplicationContext)context).close();
