@@ -1,0 +1,29 @@
+Q 1. @Cacheable(value="nextPlaying", key = "#startingFrom.getYear() + #startingFrom.getMonth() + #startingFrom.getDay() + #startingFrom.getHours() + #startingFrom.getMinutes() + #locale.getLanguage()")
+public synchronized List<Match> getNextPlaying(Date startingFrom, Locale locale)
+Here synchronized caching doesn't happen. Why?
+
+
+Solution:
+	1. When you use the @Cacheable annotation, the code that implements the cache search is outside of your method. 
+		Therefore, the synchronized modifier does not affect it.
+		If you want all the threads to use the cached result, you should create a synchronized method that wraps 
+		the invocation to the cacheable getNextPlaying method. 
+		Something like this:
+		
+		public synchronized List<Match> getNextPlayingSynchronized(Date startingFrom, Locale locale){
+		     return getNextPlaying(Date startingFrom, Locale locale);
+		}
+		...
+		@Cacheable(value="nextPlaying", key = "#startingFrom.getYear() + #startingFrom.getMonth() + #startingFrom.getDay() + #startingFrom.getHours() + #startingFrom.getMinutes() + #locale.getLanguage()")
+		public List<Match> getNextPlaying(Date startingFrom, Locale locale){
+		...//your old method without the synchronized modifier
+		}
+		
+		It's important that these methods are in different classes. Otherwise, the aspects don't work.
+	
+	2. Use Spring 4.3 version or higher where we can ensure synchronized caching by sync=true attribute with Cacheble annotation. 
+
+
+
+
+

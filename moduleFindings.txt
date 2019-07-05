@@ -12,3 +12,17 @@ QuickerCache:
     https://dzone.com/articles/spring-cache-annotation-tips-and-tricks
     
     https://www.foreach.be/blog/spring-cache-annotations-some-tips-tricks
+    
+ Key-points: 
+ 		Default key generation strategy that creates a SimpleKey 
+ 		that consists of all the parameters with which the method was called. 
+ 		This requires the parameters to have a decent hashCode()/equals() implementation.
+ 		
+    	1. Beware of the Default Cache Keys:-
+    		@Cacheable(value = "reservationsCache", key = "#restaurant.id")
+    		This uses SpEL for declaring a custom key that will be the value of the id property.
+    		
+    	2. Cacheable Annotations and Synchronization:-
+    		
+    		From spring-4.3 we have direct support for synchronized caching.  
+			@Cacheable(value = "reservationsCache", key = "#restaurand.id", sync = true)
