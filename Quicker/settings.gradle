@@ -1,0 +1,15 @@
+rootProject.name = "Quicker"
+rootProject.buildFileName = "Quicker.gradle"
+
+include ":QuickerCommon", ":QuickerAop", ":QuickerCache", ":QuickerFileIntegration", ":QuickerEmail"
+include ":QuickerEntity", ":QuickerDao", ":QuickerService", ":QuickerFacade", ":QuickerWeb"
+
+/* by default build script file is build.gradle for all projects. */
+/* specify different name instead of build.gradle name for subproject individually */
+//project(":QuickerCommon").buildFileName = "QuickerCommon.gradle"
+
+/* this script will rename build.gradle to <subproject_name>.gradle */
+// Add this at the end of settings.gradle
+rootProject.children.each { subproject ->
+    subproject.buildFileName = "${subproject.name}1.gradle"
+}

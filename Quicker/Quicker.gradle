@@ -1,0 +1,52 @@
+buildscript {
+    ext.hi = 'bye' //for all subprojects
+    ext {
+        hi = "welcome"
+    }
+}
+
+subprojects {
+    //Add common configuration here ( only subprojects , rootProject  is not included).
+    //apply plugin: 'java'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+}
+
+allprojects {
+    //Add configuration here ( root + subprojects)
+    task hello << {
+        task -> println "I'm in project '$task.project.name' "
+    }
+}
+
+project(':QuickerCommon') {
+    //Add project specific configuration here
+}
+project(':QuickerAop') {
+    //Add project specific configuration here
+}
+project(':QuickerCache') {
+    //Add project specific configuration here
+}
+project(':QuickerFileIntegration') {
+    //Add project specific configuration here
+}
+project(':QuickerEntity') {
+    //Add project specific configuration here
+}
+project(':QuickerDao') {
+    //Add project specific configuration here
+}
+project(':QuickerService') {
+    //Add project specific configuration here
+}
+project(':QuickerFacade') {
+    //Add project specific configuration here
+}
+project(':QuickerWeb') {
+    //Add project specific configuration here
+}
